@@ -5,7 +5,7 @@ import QuillCursors from 'quill-cursors';
 
 Quill.register('modules/cursors', QuillCursors);
 
-const quill = new Quill(document.querySelector('#editor'), {
+const quill = new Quill(document.querySelector('#editor')!, {
   modules: {
     cursors: true,
     toolbar: [

@@ -8,7 +8,7 @@ Quill.register('modules/cursors', QuillCursors);
 const quill = new Quill(document.querySelector('#editor')!, {
   modules: {
     cursors: true,
-    toolbar: [
+    toolbar: [	
       // adding some basic Quill content features
       [{ header: [1, 2, false] }],
       ['bold', 'italic', 'underline'],
@@ -38,7 +38,8 @@ const binding = new QuillBinding(ytext, quill);
 console.log({ binding });
 
 import { WebsocketProvider } from 'y-websocket';
-const wsProvider = new WebsocketProvider('ws://127.0.0.1:1234', 'jamon', ydoc);
+console.log({"env": import.meta.env});
+const wsProvider = new WebsocketProvider(import.meta.env.VITE_WS_URL, '', ydoc);
 
 wsProvider.on('status', (event: { status: any }) => {
   console.log(event.status); // logs "connected" or "disconnected"
